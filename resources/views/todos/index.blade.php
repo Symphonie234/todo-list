@@ -24,9 +24,9 @@
         @endif
 
         <div class="flex gap-4 mb-4">
-            <a href="{{ route('todos.index') }}">All</a>
-            <a href="{{ route('todos.index', ['status' => 'active']) }}">Active</a>
-            <a href="{{ route('todos.index', ['status' => 'completed']) }}">Completed</a>
+            <a href="{{ route('todos.index') }}" class="{{ $status === null ? 'font-bold' : '' }}">All</a>
+            <a href="{{ route('todos.index', ['status' => 'active']) }}" class="{{ $status === 'active' ? 'font-bold' : '' }}">Active</a>
+            <a href="{{ route('todos.index', ['status' => 'completed']) }}" class="{{ $status === 'completed' ? 'font-bold' : '' }}">Completed</a>
         </div>
         
         <div class="space-y-3">

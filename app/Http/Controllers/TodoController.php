@@ -26,7 +26,7 @@ class TodoController extends Controller
         $status = $request->query('status');
         $todos = $this->todoService->getAllTodos($status);
 
-        return view('todos.index', compact('todos'));
+        return view('todos.index', compact('todos', 'status'));
     }
 
     public function toggle(Todo $todo): RedirectResponse
