@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class TodoRepository implements TodoRepositoryInterface
 {
-    public function all(?string $status): Collection
+    public function all(?string $status, ?string $search): Collection
     {
         $query = Todo::latest();
 
@@ -16,6 +16,10 @@ class TodoRepository implements TodoRepositoryInterface
             $query = $query->where('is_done', false);
         } elseif ($status === 'completed') {
             $query = $query->where('is_done', true);
+        }
+        
+        if ($search !== null) {
+            $query = $query->where('title', 'like', "%{$search}%");
         }
 
         return $query->get();

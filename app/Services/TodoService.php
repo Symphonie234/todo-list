@@ -12,9 +12,9 @@ class TodoService
         protected TodoRepositoryInterface $todoRepository
     ) {}
 
-    public function getAllTodos(?string $status): Collection
+    public function getAllTodos(?string $status, ?string $search): Collection
     {
-        return $this->todoRepository->all($status);
+        return $this->todoRepository->all($status, $search);
     }
 
     public function toggleTodoStatus(Todo $todo): Todo

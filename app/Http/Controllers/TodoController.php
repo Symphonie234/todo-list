@@ -24,9 +24,10 @@ class TodoController extends Controller
     public function index(Request $request): View
     {
         $status = $request->query('status');
-        $todos = $this->todoService->getAllTodos($status);
+        $search = $request->query('search');
+        $todos = $this->todoService->getAllTodos($status, $search);
 
-        return view('todos.index', compact('todos', 'status'));
+        return view('todos.index', compact('todos', 'status', 'search'));
     }
 
     public function toggle(Todo $todo): RedirectResponse
