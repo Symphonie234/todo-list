@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface TodoRepositoryInterface
 {
-    public function all(?string $status): Collection;
+    public function all(?string $status, ?string $search): Collection;
 
     public function find(int $id): Todo;
 

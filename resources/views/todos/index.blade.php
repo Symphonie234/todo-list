@@ -2,6 +2,11 @@
     <div class="max-w-2xl mx-auto mt-10 px-4">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold">My Todos</h1>
+            <form action="{{ route('todos.index') }}" method="GET">
+                    <input type="hidden" name="status" value="{{ $status }}">
+                    <input type="text" placeholder="Search todos" class="border" name="search" value="{{ $search }}">
+                <button type="submit">Search</button>
+            </form>
             <a href="{{ route('todos.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded">
                 + New Todo
             </a>
