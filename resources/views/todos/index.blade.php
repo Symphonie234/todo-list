@@ -23,6 +23,12 @@
             </div>
         @endif
 
+        <div class="flex gap-4 mb-4">
+            <a href="{{ route('todos.index') }}">All</a>
+            <a href="{{ route('todos.index', ['status' => 'active']) }}">Active</a>
+            <a href="{{ route('todos.index', ['status' => 'completed']) }}">Completed</a>
+        </div>
+        
         <div class="space-y-3">
             @forelse ($todos as $todo)
                 <div class="border rounded p-4 flex justify-between items-center {{ $todo->is_done ? 'bg-gray-50' : '' }}">
