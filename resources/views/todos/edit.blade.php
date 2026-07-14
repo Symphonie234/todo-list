@@ -27,6 +27,15 @@
                 Completed
             </label>
 
+            <div>
+                <label class="block font-medium">Priority</label>
+                <select name="priority">
+                    <option value="low" {{ old('priority', $todo->priority) === 'low' ? 'selected' : '' }}>Low</option>
+                    <option value="medium" {{ old('priority', $todo->priority) === 'medium' ? 'selected' : '' }}>Medium</option>
+                    <option value="high" {{ old('priority', $todo->priority) === 'high' ? 'selected' : '' }}>High</option>
+                </select>
+            </div>
+
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update Todo</button>
         </form>
     </div>

@@ -44,6 +44,15 @@
                         @if ($todo->due_date)
                             <p class="text-sm text-gray-500">Due: {{ $todo->due_date->format('M d, Y') }}</p>
                         @endif
+                        @if ($todo->priority)
+                            <p class="text-sm {{ match ($todo->priority) {
+                                'high' => 'text-red-600',
+                                'medium' => 'text-yellow-600',
+                                'low' => 'text-green-600',
+                            } }}">
+                                Priority: {{ $todo->priority }}
+                            </p>
+                        @endif
                     </div>
 
                     <div class="flex gap-2">

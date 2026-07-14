@@ -27,7 +27,8 @@ class UpdateTodoRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'is_done' => ['boolean'],
-            'due_date' => ['nullable', 'date']
+            'due_date' => ['nullable', 'date'],
+            'priority' => ['nullable', 'string', 'in:high,medium,low']
         ];
     }
 }

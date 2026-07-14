@@ -25,10 +25,10 @@
 
             <div>
                 <label class="block font-medium">Priority</label>
-                <select>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                <select name="priority">
+                    <option value="low" {{ old('priority') === 'low' ? 'selected' : '' }}>Low</option>
+                    <option value="medium" {{ old('priority') === 'medium' ? 'selected' : '' }}>Medium</option>
+                    <option value="high" {{ old('priority') === 'high' ? 'selected' : '' }}>High</option>
                 </select>
             </div>
 
