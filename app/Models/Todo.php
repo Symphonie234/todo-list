@@ -13,7 +13,8 @@ class Todo extends Model
         'title',
         'description',
         'is_done',
-        'due_date'
+        'due_date',
+        'priority'
     ];
 
     protected $casts = [

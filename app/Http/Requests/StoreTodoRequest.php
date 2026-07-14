@@ -26,7 +26,8 @@ class StoreTodoRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'due_date' => ['nullable', 'date']
+            'due_date' => ['nullable', 'date'],
+            'priority' => ['nullable', 'string', 'in:high,medium,low']
         ];
     }
 }
