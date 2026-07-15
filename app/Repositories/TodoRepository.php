@@ -4,11 +4,11 @@ namespace App\Repositories;
 
 use App\Models\Todo;
 use App\Repositories\Contracts\TodoRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TodoRepository implements TodoRepositoryInterface
 {
-    public function all(?string $status, ?string $search): Collection
+    public function all(?string $status, ?string $search): LengthAwarePaginator
     {
         $query = Todo::latest();
 
@@ -17,12 +17,12 @@ class TodoRepository implements TodoRepositoryInterface
         } elseif ($status === 'completed') {
             $query = $query->where('is_done', true);
         }
-        
+
         if ($search !== null) {
             $query = $query->where('title', 'like', "%{$search}%");
         }
 
-        return $query->get();
+        return $query->paginate(5);
     }
 
     public function find(int $id): Todo
@@ -32,8 +32,6 @@ class TodoRepository implements TodoRepositoryInterface
 
     public function toggle(Todo $todo): Todo
     {
-        // For test (test_toggle_flips_is_done_status)
-        // $todo->update(['is_done' => '!$todo->is_done']);
         $todo->update(['is_done' => !$todo->is_done]);
 
         return $todo;

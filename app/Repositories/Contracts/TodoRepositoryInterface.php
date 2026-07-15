@@ -3,11 +3,11 @@
 namespace App\Repositories\Contracts;
 
 use App\Models\Todo;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface TodoRepositoryInterface
 {
-    public function all(?string $status, ?string $search): Collection;
+    public function all(?string $status, ?string $search): LengthAwarePaginator;
 
     public function find(int $id): Todo;
 
