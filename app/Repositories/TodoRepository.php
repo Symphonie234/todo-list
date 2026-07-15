@@ -32,6 +32,8 @@ class TodoRepository implements TodoRepositoryInterface
 
     public function toggle(Todo $todo): Todo
     {
+        // For test (test_toggle_flips_is_done_status)
+        // $todo->update(['is_done' => '!$todo->is_done']);
         $todo->update(['is_done' => !$todo->is_done]);
 
         return $todo;
