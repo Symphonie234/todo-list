@@ -78,5 +78,9 @@
                 <p class="text-gray-500">No todos yet. Add one!</p>
             @endforelse
         </div>
+
+        <div class="mt-5">
+            {{ $todos->withQueryString()->links() }}
+        </div>
     </div>
 </x-layout>]

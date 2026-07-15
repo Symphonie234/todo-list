@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Todo;
 use App\Repositories\Contracts\TodoRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TodoService
 {
@@ -12,7 +12,7 @@ class TodoService
         protected TodoRepositoryInterface $todoRepository
     ) {}
 
-    public function getAllTodos(?string $status, ?string $search): Collection
+    public function getAllTodos(?string $status, ?string $search): LengthAwarePaginator
     {
         return $this->todoRepository->all($status, $search);
     }
