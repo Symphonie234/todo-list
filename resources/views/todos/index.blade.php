@@ -55,6 +55,12 @@
                         @endif
                     </div>
 
+                    <div>
+                        @if ($todo->category)
+                            <p class="text-sm">{{ $todo->category->name }}</p>
+                        @endif
+                    </div>
+
                     <div class="flex gap-2">
                         <form action="{{ route('todos.toggle', $todo) }}" method="POST">
                             @csrf

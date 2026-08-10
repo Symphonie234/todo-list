@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
 class Todo extends Model
 {
@@ -14,11 +16,17 @@ class Todo extends Model
         'description',
         'is_done',
         'due_date',
-        'priority'
+        'priority',
+        'category_id'
     ];
 
     protected $casts = [
         'is_done' => 'boolean',
         'due_date' => 'date',
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

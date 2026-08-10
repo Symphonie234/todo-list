@@ -28,7 +28,8 @@ class UpdateTodoRequest extends FormRequest
             'description' => ['nullable', 'string'],
             'is_done' => ['boolean'],
             'due_date' => ['nullable', 'date'],
-            'priority' => ['nullable', 'string', 'in:high,medium,low']
+            'priority' => ['nullable', 'string', 'in:high,medium,low'],
+            'category_id' => ['nullable', 'exists:categories,id']
         ];
     }
 }

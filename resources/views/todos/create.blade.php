@@ -32,6 +32,16 @@
                 </select>
             </div>
 
+            <div>
+                <label class="block font-medium">Category</label>
+                <select name="category_id">
+                    <option value="">-- None --</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Save Todo</button>
         </form>
     </div>

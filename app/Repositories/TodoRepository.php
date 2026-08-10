@@ -10,7 +10,7 @@ class TodoRepository implements TodoRepositoryInterface
 {
     public function all(?string $status, ?string $search): LengthAwarePaginator
     {
-        $query = Todo::latest();
+        $query = Todo::latest()->with('category');
 
         if ($status === 'active') {
             $query = $query->where('is_done', false);
