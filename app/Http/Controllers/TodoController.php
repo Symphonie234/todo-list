@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
 use App\Models\Todo;
+use App\Models\Category;
 use App\Services\TodoService;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -46,7 +47,9 @@ class TodoController extends Controller
      */
     public function create(): View
     {
-        return view('todos.create');
+        $categories = Category::all();
+
+        return view('todos.create', compact('categories'));
     }
 
     /**
@@ -83,7 +86,9 @@ class TodoController extends Controller
      */
     public function edit(Todo $todo): View
     {
-        return view('todos.edit', compact('todo'));
+        $categories = Category::all();
+
+        return view('todos.edit', compact('todo', 'categories'));
     }
 
     /**

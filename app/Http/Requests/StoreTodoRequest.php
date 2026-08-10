@@ -27,7 +27,8 @@ class StoreTodoRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'due_date' => ['nullable', 'date'],
-            'priority' => ['nullable', 'string', 'in:high,medium,low']
+            'priority' => ['nullable', 'string', 'in:high,medium,low'],
+            'category_id' => ['nullable', 'exists:categories,id']
         ];
     }
 }
